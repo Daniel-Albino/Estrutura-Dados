@@ -2,7 +2,7 @@
 
 ## **Indice**
 1. [Análise de Complexidade](##Análise-de-Complexidade)
-2. [Máxima Sequência Contígua](###Máxima-Sequência-Contígua)
+2. [Máxima Sequência Contígua](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#m%C3%A1xima-sequ%C3%AAncia-cont%C3%ADgua)
 
 ## Análise de Complexidade
 
