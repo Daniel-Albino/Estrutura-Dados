@@ -97,8 +97,8 @@ Nota: Informação ordenada obrigatória.
 
 ### **Máxima Sequência Contígua**
 
-````
-Ver: https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha%201/Exercicios/src/pt/isec/a2020134077/exerciciosficha1/ex4/Main.java
+
+Ver: [Aqui] https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha%201/Exercicios/src/pt/isec/a2020134077/exerciciosficha1/ex4/Main.java
 (Branch master -> Ficha 1 -> Exercicios -> src -> pt -> isec -> a2020134077 -> exerciciosficha1 -> ex4 -> Main.java).
-````
+
 
