@@ -29,6 +29,18 @@ Práticas - Mateus Mendes (mmendes@isec.pt)
 - Pode ser reaproveitada a nota de testes laboratoriais de épocas anteriores (até 2 anos) desde que a sua classificação seja maior ou igual a 50%.
 ````
 
+### Datas:
+#### Datas Testes Laboratoriais:
+```` diff
+- 22/11/2022
+- 20/12/2022
+````
+#### Data Seminário:
+```` diff
+- 03/01/2023
+(Tema -> Estruturas (apresentação de 10 minutos))
+````
+
 
 ### Avalição (Síntese):
 
