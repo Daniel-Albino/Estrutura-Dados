@@ -2,7 +2,7 @@
 
 ## **Indice**
 1. [Análise de Complexidade](##Análise-de-Complexidade)
-2. [Máxima Sequência Contígua](###Máxima-Sequência-Contígua**)
+2. [Máxima Sequência Contígua](###Máxima-Sequência-Contígua)
 
 ## Análise de Complexidade
 
