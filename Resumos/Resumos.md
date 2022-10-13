@@ -104,3 +104,290 @@ Ver: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha%2
 Ou (Branch master -> Ficha 1 -> Exercicios -> src -> pt -> isec -> a2020134077 -> exerciciosficha1 -> ex4 -> Main.java).
 
 
+## Genéricos
+
+### **Métodos Genéricos**
+
+- Pretende-se um método que imprime o conteúdo de um *array*:
+````
+public static void imprime(String [] m){
+    for(String a : m)
+    System.out.println(a);
+}
+
+public static void main (String args[]){
+    String m[]={“José”,”António”};
+    imprime(m);
+}
+````
+
+- A função anterior só funciona para *arrays* de *Strings*;
+- Pode ser *generalizada* para aceitar *arrays* com qualquer tipo de elementos.
+````
+public static <T> void imprime(T [] m){
+    for(T a: m)
+    System.out.println(a);
+}
+
+public static void main (String args[]){
+    String m[]={“José”,”António”};
+    Integer n[]={2, 3};
+    imprime(m);  
+    imprime(n);  
+}
+````
+
+### **Classes Genéricas**
+
+- O coneito de genéricos também pode ser aplicado a classes.
+
+````
+public class Par <T,S> {
+    T primeiro;
+    S segundo;
+
+    public Par(T a, S b){
+        primeiro=a;
+        segundo=b;
+    }
+
+    public T getPrimeiro(){
+        return primeiro;
+    }
+
+    public S getSegundo(){
+        return segundo;
+    }
+
+    public setPrimeiro(T a){
+        primeiro=a;
+    }
+
+    public setSegundo(S b){
+        segundo=b;
+    }
+}
+````
+
+### **Wildcards**
+
+- É possível impor restrições ao parâmetros formais. Por exemplo, neste caso, T:
+````
+public static <T extends Number> boolean maior (T p1, T p2){
+    return p1.doubleValue()>p2.doubleValue();
+}
+
+public static void main(String args[]){
+    if(maior(33,4))
+    System.out.println(“maior”);
+    boolean m=maior(“ola”,”adeus”); //erro de compilação
+    /String não estende Number.
+}
+````
+
+- As *wildcards* podem ser especificadas da seguinte forma:
+    - **X extends Y:**
+        - X é igual a ou estende a classe Y (ou implementa interface Y);
+    - **X super Y:**
+        - Y é igual a ou estende a classe X (ou implementa interface X);
+    - X ou Y podem ser substituidos por ‘?’, o que significa “qualquer classe”.
+
+#### **Exemplo**
+
+- Os wildcards podem ser usados para substituir parâmetros formais que são usados uma única vez:
+
+##### Exemplo 1:
+
+````
+public static <T,S> void f(par<T,S> p)
+````
+- Pode ser escrito como:
+````
+public static <T,S> void f(par<T,S> p)
+````
+
+##### Exemplo 2:
+
+````
+public static <T,S> void f(par<T,S> p)
+````
+
+- Pode ser escrito como:
+````
+public static <T,S> void f(par<T,S> p)
+````
+
+### **Suporte de Polimorfismo com Wildcards**
+
+````
+public class Par <T,S> {
+    T primeiro;
+    S segundo;
+
+    public Par(T a, S b){
+        primeiro=a;
+        segundo=b;
+    }
+
+    public T getPrimeiro(){return primeiro;}
+    public S getSegundo(){return segundo;}
+
+    ...
+
+    public void copia(Par<T,S> outroPar){
+        primeiro=outroPar.getPrimeiro();
+        Segundo=outroPar.getSegundo();
+    }
+}
+
+
+class Rect{
+    ...
+};
+
+class Quad extends Rect{
+    ...
+}
+
+public static void main(String args[]){
+    Quad q1=new Quad(1), q2=new Quad(2);
+    Rect r1=new Rect(2,3), r2= new Rect (3,4);
+    Par<Quad,Rect> p1=new Par<>(q1,r1);
+    Par<Quad,Rect> p2=new Par<>(q2,r2);
+    p2.copia(p1);  //ok
+    Par<Rect,Rect> p3=new Par<>(q1,r1);
+    Par<Rect,Rect> p4=new Par<>(q2,r2);
+    p3.copia(p4);   //ok
+    p3.copia(p1);   // erro de compilação: 
+    //Par<Quad,Rect> não pode ser usado 
+    // no lugar de Par<Rect,Rect>
+}
+````
+
+![image](https://user-images.githubusercontent.com/84712694/195580689-656d4301-480f-43c8-bc40-5eaaae7e8fff.png)
+
+
+### **Polimorfismo com Wildcards**
+
+**Considere-se a seguinte hierarquia:**
+
+````
+class Figura implements Comparable<Figura>{
+    int compareTo(Figura f){ ... }
+}
+Class Rect extends Figura{ ... }
+...
+````
+
+**É possível fazer isto:**
+
+````
+Rect r=new Rect(2,3), q=new Rect(3,4);
+r.compareTo(q);  //ok!
+// é válido, apesar de Rect não ser Comparable<Rect>
+// porque é Comparable<Figura>
+````
+
+**Sendo assim, como usar wildcards para definir um método que recebe um parametro Rect e qualquer outro que possa ser comparado com ele?**
+
+
+#### **Tentiva 1:**
+
+````
+static int compara (Rect r, Comparable<Rect> c){
+    //não funciona bem...  Qualquer figura é comparável 
+    // com Rect
+}
+````
+
+#### **Tentiva 2:**
+````
+static int compara (Rect r, Comparable<Figura> c){
+    // Já funciona melhor, mas infelizmente obriga-nos a saber
+    // que é exactamente a nível da classe Figura que se 
+    // define a comparação.. 
+
+    //Se também for possível comparar uma outra classe não 
+    //relacionada com figura (p.ex: Colorido) com um 
+    //rectangulo, então não irá funcionar nesse caso
+}
+````
+
+#### **Como generalizar?:**
+
+**Basta que o objecto recebido por parâmetro seja comparável com uma classe antecessora de Rect!**
+
+````
+static int compara (Rect r, Comparable<? super Rect> c){
+    ...
+    // Já funciona bem em todos os casos
+    // pode reber um objecto que seja comparável com Rect,
+    // ou então com Figura, ou então com Object...
+}
+````
+
+**Generalizando o Rect para que a função possa receber qualquer tipo de objectos**
+
+````
+static <T> int compara (T r, Comparable<? super T> c){
+    return c.compareTo(r);  //ok!
+}
+````
+
+
+### **Limitações dos Genéricos**
+
+- Quando um programa é compilado, os parâmetros dos genéricos são removidos, sendo utilizados Objects (ou outra superclasse adequada) no seu lugar. 
+    - A informação de genéricos é usada apenas durante o processo de compilação para fazer verificação de tipos.
+    - Este processo é designado por Type Erasure
+- Isto condiciona as operações possíveis com esses tipos.
+
+![1](https://user-images.githubusercontent.com/84712694/195583603-2845a25d-715f-4660-aab5-1b54ab313194.png)
+
+
+- Sendo T um parâmetro formal, não é possível:
+    - Criar arrays de classes parametrizadas:
+        - Par<X,Y> m[] = new Par<>[10]; 
+    - Criação de Objectos de tipo T:
+        - T obj = new T();
+    - Extensão:   
+        - class <X> extends X
+    - Utilizar o tipo em membros ou métodos estáticos: 
+        - private static T valor;
+        - public static void f (T in); 
+    - Obter dinamicamente informação sobre o tipo:
+        - O instanceof T
+    - Ser usado em enumerações: 
+        - enum State<X> { ... }
+
+### **Exercício:**
+
+- Como definir uma classe ParComparável, sabendo que esta representa um Par cujos elementos são comparáveis. A classe ParComparável deve por sua vez ser também comparável: a comparação deve ser decidida através da comparação dos dois primeiros elementos de cada par, desempatando com a comparação dos segundos.
+
+    - Passo 1:
+        - “(...) classe ParComparável, sabendo que esta representa um Par cujos elementos são comparáveis. (...)”
+
+![image](https://user-images.githubusercontent.com/84712694/195584225-a1d6d3df-ff8f-4d69-8560-162a024cf0c2.png)
+
+- A classe ParComparável deve por sua vez ser também comparável:
+
+````
+public class ParComparavel <S extends Comparable<? Super S>, T extends Comparable<? Super T>>
+extends Par<S,T> implements Comparable<ParComparavel<? extends S,? extends T>> { ... }
+````
+
+- A comparação deve ser decidida através da comparação dos dois primeiros elementos de cada par, desempatando com a comparação dos segundos.
+
+````
+class ParComparável ...{
+    ...
+    int compareTo(ParComparavel<? extends S,? extends T> p){
+        int compPrimeiro = p.getPrimeiro().compareTo(getPrimeiro());
+        if(compPrimeiro==0) 
+            return p.getSegundo(getSegundo());
+        else 
+            return compPrimeiro;
+    }
+    ...
+}
+````
