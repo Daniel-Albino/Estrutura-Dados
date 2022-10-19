@@ -36,6 +36,7 @@ Exercícios e resumos de Estruturas de Dados
 ## Fichas:
 
 ### Ficha 1: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha%201)
+- [PDF](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha%201/ED%20lab%2001.pdf)
 1. [Exercício 1](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha%201/Exercicios/src/pt/isec/a2020134077/exerciciosficha1/ex1/Ex1.md)
 2. [Exercício 2](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha%201/Exercicios/src/pt/isec/a2020134077/exerciciosficha1/ex2)
     - [Código](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha%201/Exercicios/src/pt/isec/a2020134077/exerciciosficha1/ex2/Main.java)
