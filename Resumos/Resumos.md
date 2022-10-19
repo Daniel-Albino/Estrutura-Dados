@@ -391,3 +391,94 @@ class ParComparável ...{
     ...
 }
 ````
+
+
+## Iteradores
+
+- São objetos utilizados para percorrer estruturas de dados.
+
+![image](https://user-images.githubusercontent.com/84712694/196768442-6fbf20a4-c42b-48f6-8cca-73d46dc566a9.png)
+
+
+## Interface que se deve implementar em Java:
+
+````
+public interface Iterator<E>{
+    boolean hasNext();
+    E next() ; // gera excepção caso não exista
+    default void remove();
+    default void forEachRemaining(Consumer<? super E> action); //Java 8+
+}
+````
+
+- A criação de uma nova estrutura de dadas deve ser acompanhada pela criação de um iterador adequado.
+- As estruturas de dados disponibilizam iteradores adequados através de um método fábrica, que devolve um iterador adequado.
+````
+Iterator<E> interator();
+````
+- O interface Iterable<T> indica a existência do método acima descrito.
+
+
+## Exemplo:
+
+````
+public class Par <T> implements Iterable<T> {
+    T p1,p2;
+    Iterator<T> iterator(){
+    return new IteratorPar<T>(this);
+    }
+    …
+};
+
+public class IteratorPar<T> implements Iterator<T>{
+    int counter=0;
+    Par<T> par;
+    IteratorPar( Par<T> p){par=p;}
+    Boolean hasNext() {return counter!=2;}
+
+    T next(){
+        switch(counter) {
+            case 0: counter++; return par.p1;
+            case 1: counter++; return par.p2;
+            default: throw new NoSuchElementException();
+        };
+    }
+}
+````
+
+## Algoritmos: 
+
+- Os algoritmos podem ser tornados independentes dos contentores de dados através do uso de Iteradores.
+
+````
+public <T> boolean procura(Iterable<T> m, T o){
+    Iterator<T> it=m.iterator();
+    boolean proximo=it.hasNext();
+    while(proximo){
+        if(it.next()==o) // compara referência, não conteúdo
+            return true;
+        proximo=it.hasNext();
+    }
+    return false;
+}
+````
+
+## Excepções:
+
+- Os iteradores podem/devem gerar as seguintes excepções:
+    - **UnsupportedOperationException:** A operação (p.ex: remoção) não é suportada.
+    - **NoSuchElementException:** Tentativa de acesso a um elemento que não existe
+    - **IllegalStateException:** Tentativa de remoção sem avançar para primeiro elemento ou tentativa de remover o mesmo elemento mais do que uma vez.
+    - **ConcurrentModificationException:** Quando se tenta usar um iterador inválido. Um iterador é inválido quando a colecção foi alterada externamente (através de um outro iterador, por exemplo).
+    - O suporte para geração da exceção **ConcurrentModificationException** pode ser realizado através de uma contagem de modificações (p.ex., add, remove) armazenada na estrutura e no iterador:
+
+![2](https://user-images.githubusercontent.com/84712694/196770027-14062831-bf8b-4df7-9e10-b639ff779ebc.png)
+
+
+## Alguns apontamentos importantes:
+
+![Caderno3](https://user-images.githubusercontent.com/84712694/196771882-a78fefea-ab38-4311-8cc0-f78e3cf1422d.jpg)
+![Caderno4](https://user-images.githubusercontent.com/84712694/196771850-9c0c52b6-202c-41d4-ad12-0ba05fe32b76.jpg)
+![Caderno5](https://user-images.githubusercontent.com/84712694/196771857-e80c9893-7339-4ca0-ab60-151c9e848a30.jpg)
+![Caderno6](https://user-images.githubusercontent.com/84712694/196771868-51f188ec-b86c-4c7d-8205-12994fa15f9a.jpg)
+![Caderno7](https://user-images.githubusercontent.com/84712694/196771876-a5895b84-6209-45ae-99cd-ad2038e9d188.jpg)
