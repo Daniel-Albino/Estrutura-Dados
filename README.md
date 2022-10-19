@@ -17,7 +17,7 @@ Exercícios e resumos de Estruturas de Dados
         - [Pesquisa Interpolada](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#pesquisa-interpolada)
     - [Máxima Sequência Contígua](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#m%C3%A1xima-sequ%C3%AAncia-cont%C3%ADgua)
  
- 2. [Genéricos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#gen%C3%A9ricos)
+2. [Genéricos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#gen%C3%A9ricos)
     - [Métodos Genéricos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#m%C3%A9todos-gen%C3%A9ricos)
     - [Classes Genéricas](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#classes-gen%C3%A9ricas)
     - [Wildcards](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#wildcards)
@@ -25,6 +25,14 @@ Exercícios e resumos de Estruturas de Dados
         - [Polimorfismo com Wildcards](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#polimorfismo-com-wildcards)
     - [Limitações dos Genéricos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#limita%C3%A7%C3%B5es-dos-gen%C3%A9ricos)
     - [Exercício](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#exerc%C3%ADcio)
+
+3. [Iteradores](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#iteradores)
+    - [Interface que se deve implementar em Java:](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#interface-que-se-deve-implementar-em-java)
+    - [Exemplo](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#exemplo-3)
+    - [Algoritmos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#algoritmos)
+    - [Excepções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#excep%C3%A7%C3%B5es)
+    - [Alguns apontamentos importantes](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#alguns-apontamentos-importantes)
+    
 ## Fichas:
 
 ### Ficha 1: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha%201)
