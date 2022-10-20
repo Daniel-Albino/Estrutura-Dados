@@ -400,7 +400,7 @@ class ParComparável ...{
 ![image](https://user-images.githubusercontent.com/84712694/196768442-6fbf20a4-c42b-48f6-8cca-73d46dc566a9.png)
 
 
-## Interface que se deve implementar em Java:
+### Interface que se deve implementar em Java:
 
 ````
 public interface Iterator<E>{
@@ -419,7 +419,7 @@ Iterator<E> interator();
 - O interface Iterable<T> indica a existência do método acima descrito.
 
 
-## Exemplo:
+### Exemplo:
 
 ````
 public class Par <T> implements Iterable<T> {
@@ -446,7 +446,7 @@ public class IteratorPar<T> implements Iterator<T>{
 }
 ````
 
-## Algoritmos: 
+### Algoritmos: 
 
 - Os algoritmos podem ser tornados independentes dos contentores de dados através do uso de Iteradores.
 
@@ -463,7 +463,7 @@ public <T> boolean procura(Iterable<T> m, T o){
 }
 ````
 
-## Excepções:
+### Excepções:
 
 - Os iteradores podem/devem gerar as seguintes excepções:
     - **UnsupportedOperationException:** A operação (p.ex: remoção) não é suportada.
@@ -475,10 +475,206 @@ public <T> boolean procura(Iterable<T> m, T o){
 ![2](https://user-images.githubusercontent.com/84712694/196770027-14062831-bf8b-4df7-9e10-b639ff779ebc.png)
 
 
-## Alguns apontamentos importantes:
+### Alguns apontamentos importantes:
 
 ![Caderno3](https://user-images.githubusercontent.com/84712694/196771882-a78fefea-ab38-4311-8cc0-f78e3cf1422d.jpg)
 ![Caderno4](https://user-images.githubusercontent.com/84712694/196771850-9c0c52b6-202c-41d4-ad12-0ba05fe32b76.jpg)
 ![Caderno5](https://user-images.githubusercontent.com/84712694/196771857-e80c9893-7339-4ca0-ab60-151c9e848a30.jpg)
 ![Caderno6](https://user-images.githubusercontent.com/84712694/196771868-51f188ec-b86c-4c7d-8205-12994fa15f9a.jpg)
 ![Caderno7](https://user-images.githubusercontent.com/84712694/196771876-a5895b84-6209-45ae-99cd-ad2038e9d188.jpg)
+
+
+
+## Coleções
+
+- São bibliotecas de estruturas de dados e algortimos.
+
+### API de Coleções:
+
+- Todas as estruturas de dados implementam o interface Collection < T >.
+    - **Inserção/Remoção:** add, addAll, remove, removeAll, retainAll, clear.
+    - **Conversão para array:** toArray
+    - **Suporte para iteradores:** iterator
+    - **Informação e pesquisa:** isEmpty, size, contains, containsAll
+- Os algoritmos são disponibilizados como métodos estáticos da classe:
+    - *java.util.Collections*;
+    - *java.util.Arrays*.
+    - Cópia, pesquisa binária, contagem de objectos, manipulação, substituição,ordenação e outros.
+
+### Retrocompatibilidade:
+
+- Apesar de todos os contentores de dados serem genéricos, podendo conter objectos de qualquer tipo, alguns métodos manipulam objectos, por motivos de compatibilidade com versões antigas da linguagem:
+    - **boolean contains(Object x)** – Devolve verdadeiro se o Objecto está no contentor.
+    - **boolean remove(Object x)** - Devolve verdadeiro se o objecto foi removido.
+
+### Conversão para Array:
+
+#### Exemplo:
+````
+Collection<String> col=…;
+String [] m=new String[col.size()];
+Col.toArray(m);
+````
+
+### Construção de Coleções:
+
+- Não é possível especificar os construtores através de um interface.
+- No entanto, por convenção, todas as implementações de Collection deverão possuir os seguintes construtores:
+    - *Construtor sem parâmetros*;
+    - *Construtor que cria uma colecção que referencia os mesmos elementos que outra colecção*.
+
+````
+class Pacote <X> implements Collection<X>{
+    Pacote(){
+        //cria colecção vazia;
+        …
+    }
+    
+    Pacote(Collection<? extends X> c){
+        //cria uma colecção que referencia
+        //os mesmos elementos que c
+        …
+    }
+    …
+}
+````
+
+### Métodos Opcionais:
+
+- O que acontece se um dos métodos requerido pelo interface não for suportado?
+    - Por exemplo, remoção de elementos em colecções imutáveis?
+- Está prevista a existência de métodos opcionais!
+    - A execução de um método opcional que não é implementado resulta na geração de uma excepção *UnsupportedOperationException*.
+
+### Algoritmos Genéricos:
+
+- Os algoritmos são fornecidos como métodos estáticos de classes como Collections e Arrays.
+
+### Functores:
+
+- Um functor (ou objecto-função) é um objecto que encapsula uma *função/método*.
+- São úteis para API de coleções, para variar a funcionalidade de alguns dos algoritmos.
+
+#### Functor - Comparator:
+
+***Problemas:***
+- Como ordenar objectos de classes que não são comparáveis ?
+- Como ordenar strings de acordo com o segundo caracter?
+
+***Resolução:***
+- Criar um objeto *Comparator* adquado.
+
+````
+interface Comparator<T>{
+    public int compare(T o1, T o2);
+}
+
+class Comparador2Char implements Comparator<String> {
+    Public int compare(String o1, String o2) {
+        Character c1=new Character(o1.charAt(1));
+        Character c2=new Character(o2.charAt(1));
+        return o1.compareTo(o2);
+    }
+}
+````
+
+#### Comparador por omissão:
+
+````
+class DefaultComparator <E extends Comparable<? super E> > implements Comparator<E> {
+    public int compare( E lhs, E rhs ) {
+        return lhs.compareTo( rhs );
+    }
+}
+````
+
+### Algoritmos:
+
+**Pesquisa Binária:**
+- **Arrays.binarySearch** – versões overloaded para tipos básicos de dados, bem como duas versões para objectos (com e sem um functor Comparator)
+````
+int binarySearch(Object[] a, Object key)
+static<T> int binarySearch(T[] a, T key, Comparator<? super T> c)
+
+````
+- Caso o elemento exista, devolve a sua posição.
+- Caso o elemento não exista, devolve o inverso da primeira posição com um elemento de valor superior.
+
+
+**Ordenação:**
+
+- Arrays.sort – versões overloaded para tipos básicos de dados, bem como duas versões para objectos (com e sem um functor Comparator).
+
+### Tipos de coleções:
+
+**List:**
+
+- Colecção na qual os items têm uma posição.
+- Acrescenta métodos relacionados com o posicionamento dos elementos.
+- Acrescenta também um iterador bidireccional.
+
+**ListIterator:**
+- **void add(E e)** – Insere Elemento na lista;
+- **Boolean hasPrevious()** – Indica se há um elemento atrás do posição actual
+- **int nextIndex()** – Retorna indice do próximo elemento
+- **E previous()** - Retorna elemento anterior.
+- **void set(E e)** – modifica o ultimo elemento devolvido.
+
+### Operações sobre ArrayLists:
+
+- **Organização interna:**
+
+![image](https://user-images.githubusercontent.com/84712694/196928678-a13d222c-ec1d-4dbb-90f6-56240a17a48f.png)
+
+- **Acrescentar um valor:**
+
+![image](https://user-images.githubusercontent.com/84712694/196928884-e14a9eda-e426-4baf-b083-e3c1b8b7f45f.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196929138-243acc4f-0134-4908-b937-3716e3ecdb73.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196929278-d48105d4-9ddf-40cc-bea4-e3fb2008a0c7.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196929435-6164ab79-918e-4938-b14a-060a57fc8ae7.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196929704-c2fb21c3-6d99-4c2a-b1e1-d5451fd5db78.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196929927-26a12402-de66-40ef-bc15-e86144835a72.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196930044-cda24378-1e19-4e8b-89b0-29d192d70d8f.png)
+
+    Se o aumento da capacidade for sempre proporcional à capacidade anterior (p.ex: 2x), então atinge-se comportamento constante amortizado.
+    Uma operação tem custo O(1) amortizado se o custo de a executar N vezes é O(N) (mesmo que nem todas as execuções sejam O(1)).
+    Isto deve-se à diluição do custo de inserções O(N) pelas inserções O(1).
+
+
+- **Remover um valor:**
+
+![image](https://user-images.githubusercontent.com/84712694/196930660-ca695201-ba8b-456d-b717-9c949c4d4753.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196930816-9fa1672f-62aa-4990-b0e0-5d108f41388c.png)
+
+
+![image](https://user-images.githubusercontent.com/84712694/196930957-e814c0b1-bd75-4065-969d-917ca23c7fea.png)
+
+### Operações sobre LinkedLists:
+
+- **Lista duplamente ligadas:**
+
+![image](https://user-images.githubusercontent.com/84712694/196931126-5957b273-86ad-4598-844d-89aaa30fb509.png)
+
+![image](https://user-images.githubusercontent.com/84712694/196931208-333a298c-5db0-4fe4-9e0b-a82009e8a747.png)
+
+
+### Tipos de Coleções:
+
+- ***Set*** – Conjunto: colecção que não contém duplicados.
+    - SortedSet: Conjunto de elementos ordenáveis
+    - HashSet: Conjunto (não ordenado)
+
+- ***Queue*** – Fila: permite a inserção, extracção e inspecção e elementos.
+    - PriorityQueue: fila na qual os elementos estão ordenados de acordo com um determinado critério.
+
+- ***Map*** – Colecção de pares de chaves e respectivos valores.
+    - TreeMap: Mapa ordenado por chave
+    - HashMap: Mapa não ordenado
+
