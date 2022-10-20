@@ -33,6 +33,22 @@ Exercícios e resumos de Estruturas de Dados
     - [Excepções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#excep%C3%A7%C3%B5es)
     - [Alguns apontamentos importantes](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#alguns-apontamentos-importantes)
     
+3. [Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#cole%C3%A7%C3%B5es)
+    - [API de Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#api-de-cole%C3%A7%C3%B5es)
+    - [Retrocompatibilidade](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#retrocompatibilidade)
+    - [Conversão para Array](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#convers%C3%A3o-para-array)
+    - [Construção de Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#constru%C3%A7%C3%A3o-de-cole%C3%A7%C3%B5es)
+    - [Métodos Opcionais](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#m%C3%A9todos-opcionais)
+    - [Algoritmos Genéricos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#algoritmos-gen%C3%A9ricos)
+    - [Functores](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#functores)
+        - [Functor - Comparator](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#functor---comparator)
+        - [Comparador por omissão](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#comparador-por-omiss%C3%A3o)
+    - [Algoritmos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#algoritmos-1)
+    - [Tipos de coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#tipos-de-cole%C3%A7%C3%B5es)
+    - [Operações sobre ArrayLists](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#opera%C3%A7%C3%B5es-sobre-arraylists)
+    - [Operações sobre LinkedLists](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#opera%C3%A7%C3%B5es-sobre-linkedlists)
+    - [Tipos de Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#tipos-de-cole%C3%A7%C3%B5es-1)
+    
 ## Fichas:
 
 ### Ficha 1: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha%201)
