@@ -75,6 +75,7 @@ Exercícios e resumos de Estruturas de Dados
 10. [Exercício 10](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha2/Exercicios/src/pt/isec/a2020134077/ex10/Main.java)
 
 ### Ficha 3: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha3)
+- [PDF](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/ED%20lab%203b%20-%20genericos.pdf)
 1. [Exercício 1](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/Exercicios/src/pt/isec/a2020134077/ex1/Main.java)
 2. [Exercício 2](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/Exercicios/src/pt/isec/a2020134077/ex2/Main.java)
 3. [Exercício 3](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/Exercicios/src/pt/isec/a2020134077/ex3/Main.java)
