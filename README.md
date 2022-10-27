@@ -31,7 +31,6 @@ Exercícios e resumos de Estruturas de Dados
     - [Exemplo](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#exemplo-3)
     - [Algoritmos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#algoritmos)
     - [Excepções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#excep%C3%A7%C3%B5es)
-    - [Alguns apontamentos importantes](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#alguns-apontamentos-importantes)
     
 3. [Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#cole%C3%A7%C3%B5es)
     - [API de Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#api-de-cole%C3%A7%C3%B5es)
@@ -48,6 +47,8 @@ Exercícios e resumos de Estruturas de Dados
     - [Operações sobre ArrayLists](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#opera%C3%A7%C3%B5es-sobre-arraylists)
     - [Operações sobre LinkedLists](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#opera%C3%A7%C3%B5es-sobre-linkedlists)
     - [Tipos de Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#tipos-de-cole%C3%A7%C3%B5es-1)
+
+[Alguns apontamentos importantes de Iteradores e de Coleções](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Resumos/Resumos.md#alguns-apontamentos-importantes-de-iteradores-e-de-cole%C3%A7%C3%B5es)
     
 ## Fichas:
 
