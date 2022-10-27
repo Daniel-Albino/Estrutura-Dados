@@ -475,16 +475,6 @@ public <T> boolean procura(Iterable<T> m, T o){
 ![2](https://user-images.githubusercontent.com/84712694/196770027-14062831-bf8b-4df7-9e10-b639ff779ebc.png)
 
 
-### Alguns apontamentos importantes:
-
-![Caderno3](https://user-images.githubusercontent.com/84712694/196771882-a78fefea-ab38-4311-8cc0-f78e3cf1422d.jpg)
-![Caderno4](https://user-images.githubusercontent.com/84712694/196771850-9c0c52b6-202c-41d4-ad12-0ba05fe32b76.jpg)
-![Caderno5](https://user-images.githubusercontent.com/84712694/196771857-e80c9893-7339-4ca0-ab60-151c9e848a30.jpg)
-![Caderno6](https://user-images.githubusercontent.com/84712694/196771868-51f188ec-b86c-4c7d-8205-12994fa15f9a.jpg)
-![Caderno7](https://user-images.githubusercontent.com/84712694/196771876-a5895b84-6209-45ae-99cd-ad2038e9d188.jpg)
-
-
-
 ## Coleções
 
 - São bibliotecas de estruturas de dados e algortimos.
@@ -678,3 +668,12 @@ static<T> int binarySearch(T[] a, T key, Comparator<? super T> c)
     - TreeMap: Mapa ordenado por chave
     - HashMap: Mapa não ordenado
 
+
+
+## Alguns apontamentos importantes de Iteradores e de Coleções:
+
+![Caderno3](https://user-images.githubusercontent.com/84712694/196771882-a78fefea-ab38-4311-8cc0-f78e3cf1422d.jpg)
+![Caderno4](https://user-images.githubusercontent.com/84712694/196771850-9c0c52b6-202c-41d4-ad12-0ba05fe32b76.jpg)
+![Caderno5](https://user-images.githubusercontent.com/84712694/196771857-e80c9893-7339-4ca0-ab60-151c9e848a30.jpg)
+![Caderno6](https://user-images.githubusercontent.com/84712694/196771868-51f188ec-b86c-4c7d-8205-12994fa15f9a.jpg)
+![Caderno7](https://user-images.githubusercontent.com/84712694/196771876-a5895b84-6209-45ae-99cd-ad2038e9d188.jpg)
