@@ -82,3 +82,13 @@ Exercícios e resumos de Estruturas de Dados
 3. [Exercício 3](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/Exercicios/src/pt/isec/a2020134077/ex3/Main.java)
 4. [Exercício 4](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/Exercicios/src/pt/isec/a2020134077/ex4/Main.java)
 5. [Exercício 5](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha3/Exercicios/src/pt/isec/a2020134077/ex5/Main.java)
+
+### Ficha 4: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha4)
+- [PDF](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/ED%20lab%2004-iteradores.pdf)
+[Exercícios](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha4/Exercicios/src/pt/isec/a2020134077)
+    - [Main](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/Main.java)
+    - [DezReais](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/DezReais.java)
+    - [DezReaisMutavel](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/DezReaisMutavel.java)
+    - [ItDezReais](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/ItDezReais.java)
+    - [ItDezReaisMutavel](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/ItDezReaisMutavel.java)
+    - [ItDezReaisPositivos](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/ItDezReaisPositivos.java)
