@@ -85,7 +85,7 @@ Exercícios e resumos de Estruturas de Dados
 
 ### Ficha 4: [Aqui](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha4)
 - [PDF](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/ED%20lab%2004-iteradores.pdf)
-[Exercícios](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha4/Exercicios/src/pt/isec/a2020134077)
+- [Exercícios](https://github.com/Daniel-Albino/Estrutura-Dados/tree/master/Ficha4/Exercicios/src/pt/isec/a2020134077)
     - [Main](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/Main.java)
     - [DezReais](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/DezReais.java)
     - [DezReaisMutavel](https://github.com/Daniel-Albino/Estrutura-Dados/blob/master/Ficha4/Exercicios/src/pt/isec/a2020134077/DezReaisMutavel.java)
