@@ -1186,17 +1186,22 @@ O desequilibrio pode acontecer por causa de um dos seguintes cenários:
 
 
 - Assim, para conseguirmos reequilibrar a árvore temos que:
+    
     ![image](https://user-images.githubusercontent.com/84712694/199623421-53508665-8f94-4f53-a9dd-55746a75ccd2.png)
 
-    1. Identificamos o nodo que necessita de ser reequilibrado (8);
+    1º Identificamos o nodo que necessita de ser reequilibrado (8);
     - Caso de uma inserção exterior:
-        2. Efetuamos uma rotação no nodo 8.
-            ![image](https://user-images.githubusercontent.com/84712694/199623483-669e5024-5d87-4a64-8a50-7226a8dd4c3e.png)
-    - Caso de uma inserção interior:
+        
+        2º Efetuamos uma rotação no nodo 8.
 
-        ![image](https://user-images.githubusercontent.com/84712694/199623637-5d3ac01f-ffa6-4a22-94eb-c8ebc1cceae4.png)
+![image](https://user-images.githubusercontent.com/84712694/199623483-669e5024-5d87-4a64-8a50-7226a8dd4c3e.png)
 
-        2. Vamos subdividir a sub-árvore onde a inserção é feita em duas e fazer 2 rotações.
-        ![image](https://user-images.githubusercontent.com/84712694/199623714-fb6dc4c8-8a24-498f-8cea-f08d22c87cbe.png)
+- Caso de uma inserção interior:
+
+![image](https://user-images.githubusercontent.com/84712694/199623637-5d3ac01f-ffa6-4a22-94eb-c8ebc1cceae4.png)
+
+2º Vamos subdividir a sub-árvore onde a inserção é feita em duas e fazer 2 rotações.
+
+![image](https://user-images.githubusercontent.com/84712694/199623714-fb6dc4c8-8a24-498f-8cea-f08d22c87cbe.png)
 
     
