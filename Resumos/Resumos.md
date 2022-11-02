@@ -677,3 +677,526 @@ static<T> int binarySearch(T[] a, T key, Comparator<? super T> c)
 ![Caderno5](https://user-images.githubusercontent.com/84712694/196771857-e80c9893-7339-4ca0-ab60-151c9e848a30.jpg)
 ![Caderno6](https://user-images.githubusercontent.com/84712694/196771868-51f188ec-b86c-4c7d-8205-12994fa15f9a.jpg)
 ![Caderno7](https://user-images.githubusercontent.com/84712694/196771876-a5895b84-6209-45ae-99cd-ad2038e9d188.jpg)
+
+
+
+
+## Árvores Binárias
+
+![image](https://user-images.githubusercontent.com/84712694/198874247-86bca185-b630-464f-8b49-9cd57d9802e3.png)
+
+- Operações Básicas:
+    - getNumeroNodos()
+    - getAltura()
+    - imprimePreOrdem()
+    - imprimePosOrdem()
+    - imprimeEmOrdem()
+
+### Operações:
+
+- Como calcular o número de nodos de uma árvore com raiz R?
+
+````
+O número de nodos de uma árvore com raiz R é dado pela soma dos nodos da subárvore esquerda com os nodos da subárvore direita mais um (própria raiz).
+````
+
+### Travessia:
+
+- Há 3 formas de percorrer os nodos (O(N)):
+    - **pré-ordem**: O nodo é visitado, sendo depois percorrido o descendenteesquerdo e em seguida o direito;
+    - **pós-ordem**: É 1º percorrido o descendente esquerdo, depois o direito e depois visitamos o nodo;
+    - **(em-)ordem**: É 1º percorrido o descendente esquerdo, visitamos o nodo e depois percorremos o descendente direito.
+
+- É mais simples usar métodos recursivos para implementar a travessia.
+
+#### Travessia por nível:
+
+![Caderno9](https://user-images.githubusercontent.com/84712694/198875724-5b9c4d85-0597-41ae-a4d2-81e16a471101.jpg)
+
+````
+int numeroNodos(Nodo n){
+    if(n==null)
+        return 0;
+    return 1+numeroNodos(n.left)+numeroNodos(n.right);
+}
+````
+
+### Altura da Árvore:
+
+![Caderno8](https://user-images.githubusercontent.com/84712694/198875259-3874a601-136a-4ffa-a764-99a3e2a58794.jpg)
+
+````
+int getAltura(Nodo n){
+    if(n==null)
+        return 0;
+    int esq = getAltura(n.esq);
+    int dir = getAltura(n.dir);
+
+    if(esq > dir)
+        return esq + 1;
+    return dir + 1;
+}
+````
+
+### Aplicação de Árvores Binárias:
+
+- Representação de expressões:
+
+![image](https://user-images.githubusercontent.com/84712694/198874975-17c33115-4cff-4cb5-9ac0-d60d9ce44ad8.png)
+
+### Representação de expressões:
+
+#### **Impressão:**
+
+#### Em-Ordem:
+
+````
+class Nodo{
+    String valor;
+    Nodo esquerda, direita;
+    ...
+    void expressao(){
+        if(esquerda != null)
+            esquerda.expressao();
+        System.out.println(valor);
+        if(direita != null)
+            direita.expressao();
+    }
+}
+````
+
+#### Pós-Ordem:
+
+````
+class Nodo{
+    String valor;
+    Nodo esquerda, direita;
+    ...
+    Integer CalculaValor(){
+        if (esquerda==null)&&(direita==null)
+            return Integer.valueOf(valor);
+        int valEsq=esquerda.CalculaValor().intValue();
+        int valDir=0;
+        if(direita!=null)
+            direita=direita.CalculaValor().intValue();
+        if (valor.equals(“+”))
+            return valDir+ValEsq;
+        if (valor.equals(“*”))
+            return valDir*ValEsq;
+        if (valor.equals(“-”))
+            return valDir-ValEsq;
+        ...
+    }
+}
+````
+
+#### Como construir uma árvore correspondente a uma dada expressão?
+
+- Vamos primeiro analisar o caso de a expressão estar um notação postfix (o operador encontra-se depois dos argumentos) em vez de se encontrar entre eles (notação infix)
+    - Exemplo:  4+3*2 (infix) é equivalente a 4 3 2 * + (postfix)
+
+***Nota:*** 
+````
+3 + 2 -> infix
+soma(3,2) -> prefix
+3 2 + -> postfix
+````
+
+### **Conversão post-fix para árvore:**
+
+![image](https://user-images.githubusercontent.com/84712694/198876862-cf3af84e-4d3e-4995-a02c-42b1933249d8.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198876905-fb74e687-733d-488b-9d7b-f20938986470.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198876930-e44d4531-91da-4814-94b5-5d041b8753a2.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198876963-8a90b911-8874-41e8-bd65-102f07be0793.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198876998-053f25b2-1c9a-4aaf-baba-25df59e9fe05.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877045-c2a1a649-7fcf-42c7-82dc-bb7e747f2660.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877074-e69801ae-765e-48f2-9a30-ecee9677b3ec.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877107-f7d670b8-024a-437a-b8c8-e1fa09526b76.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877141-66139eb7-1ace-477d-967a-5455d5eec988.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877156-fe6c5e1b-46f3-4971-b813-cfeb85849f68.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877173-5c513738-9fea-46a5-84e9-dd3d3f3696ce.png)
+
+
+### **Infix para postfix:**
+
+![image](https://user-images.githubusercontent.com/84712694/198877509-05f0542c-29ef-4a84-9b79-bbfb486d413b.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877551-1e70eaec-198d-40d7-8bbd-8bf70ac11066.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877577-154fb8af-d001-400c-90f2-35869b4c3cb9.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877591-c4331d0d-142e-4ad4-bd91-12854c7e3ce3.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877616-866f4c5b-f487-488a-9bd4-7de798e0cfc6.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877642-a1f71e9d-921d-46e7-ba4f-636278226ed7.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877664-8944382e-45c3-40e6-ad3b-55da73eee31b.png)
+
+
+### **Infix para postfix c/ prioridade:**
+
+![image](https://user-images.githubusercontent.com/84712694/198877761-8cd02290-45a6-45fd-aa54-260d0f7f3da4.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877915-8fcb97ea-7e03-4dea-a561-8314fc6ae1e1.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877928-f2843e0f-e1ed-49b7-bfcf-243cab1e2870.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877956-f5fe09b7-505a-4418-bcca-f9f287be9457.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198877971-a0ae4c6a-337d-4ead-b26a-0b631183af63.png)
+
+
+### **Infix para postfix exemplo final:**
+
+![image](https://user-images.githubusercontent.com/84712694/198878085-9d9b25f2-24cd-476b-98d8-a7bc8d023e4d.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878093-9b3fea58-51ca-43e1-a9ed-9d037ab3cec0.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878101-a3c132a4-4af9-4406-aa02-6d213fe4aeec.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878110-02574895-e10e-4a11-a022-d5dec5726428.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878119-813f93e3-144e-4bf3-9fea-f77881a0c271.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878123-f77950e1-d9bc-4f4d-99e3-3b4c5776d4bc.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878133-753e975b-205d-4103-ba76-3af33bce92cd.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878137-d0970fc0-eb71-48f9-9c30-0bef5daa84c7.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878144-7a5bb143-1d44-4269-acc9-3ef8a9e70e59.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878154-bd2533e8-3ccc-44a6-aa76-e5cedfbae251.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878162-7635b792-cff8-4d2c-ac23-33e186cf7556.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878166-d646dae6-6d96-4d6b-9ab5-155a2fbbc709.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198878174-74f4f722-3639-4006-9e44-35344b00133c.png)
+
+
+### Compressão de dados (árvore de Huffman):
+
+![image](https://user-images.githubusercontent.com/84712694/198881351-095725c3-9396-454a-80b8-be63b7d518c5.png)
+
+
+- Codificação de Huffman:
+    - Como criar uma árvore que minimize o nº de bits necessários?
+        - Os símbolos mais frequentes devem ter uma representação mais curta e os símbolos menos frequentes devem ter uma representação mais longa.
+
+- Algoritmo de Huffman:
+    - A árvore é construída de baixo para cima, agregando sub-árvores de acordo com a frequência dos respetivos símbolos:
+        - Devem sempre ser agregadas as sub-árvores com menos símbolos;
+        - Os empates são resolvidos arbitariamente.
+
+#### Exemplo: **"ORANGOTANGO"**
+
+1. Calcula-se a frequência das letras.
+
+![image](https://user-images.githubusercontent.com/84712694/198883535-8f3069e8-5d16-4529-adab-8568c49d6117.png)
+
+2. Agrupam-se 2 dos elementos com menor frequência numa árvore.
+
+![image](https://user-images.githubusercontent.com/84712694/198883581-aa7cbe2e-be7c-439f-86a1-f4d83fdf76b2.png)
+
+3. Repete-se o processo. Neste caso, há 4 sub-árvores com apenas 2 elementos: {*A*, *N*, *G*, e a sub-árvore que acabámos de construir}
+    - Podem ser agrupadas quaisquer 2 destas sub-árvores;
+    - Vamos escolher, arbitriamente, *N* e *G*.
+
+![image](https://user-images.githubusercontent.com/84712694/198883911-eea8b539-d59d-4869-b156-31fd472b9c3e.png)
+
+4. Repete-se o processo. Agora as sub-árvores menores são "A" e a 1ª que contruimos.
+
+![image](https://user-images.githubusercontent.com/84712694/198883958-ed7068a5-5c0e-4829-958a-54d87187432c.png)
+
+5. Repete-se o processo mais 2x
+
+![image](https://user-images.githubusercontent.com/84712694/198883981-759682a6-9616-4c5a-b045-6c06aae69316.png)
+
+![image](https://user-images.githubusercontent.com/84712694/198884025-0582c727-df3e-42fc-b15a-baf57f483a3f.png)
+
+6. Por fim, obtém.se a codificação.
+
+![image](https://user-images.githubusercontent.com/84712694/198884070-ee6400f5-44d4-4101-aa8e-62cfd71a985d.png)
+
+
+
+#### **Árvores de Pesquisa Binárias:**
+
+- Podem permitir a inserção e pesquisa de informação em tempo logaritmico:
+    - *Podem ser usadas para implementar diferentes tipos de estruturas de dados.*
+
+- **Propriedade de Ordem:**
+    - Todos os nodos na sub-árvore esquerda de um nodo raiz são menores do que a raiz;
+    - Todos os nodos na sub-árvore direita de um nodo raiz são maiores do que a raiz.
+
+![image](https://user-images.githubusercontent.com/84712694/198884347-5f0f64c3-86a8-44b0-b1c0-03f256f2a831.png)
+
+- **A propriedade de ordem não permite a existência de elementos duplicados, mas isso é facilmente ultrapassável:**
+    - Pode ser usada uma estrutura de dados secundária em cada nodo.
+    - ***Exemplo:***
+        - Em cada nodo pode existir uma Lista com os elementos iguais (em termos de ordem);
+        - Caso os elementos sejam estritamente iguais, pode ser suficiente armazenar uma contagem.
+
+- **Travessia de árvore equilibrada:**
+    - Caso uma árvore de pesquisa equilibrada seja percorrida em ordem, os elementos são visitados por ordem crescente.
+
+- **Pesquisa de um valor em árvores binárias equilibradas:**
+    - Para procurar o valor *X* numa árvore com raiz *R*, verifica-se *R* contém *X*;
+    - Caso isso não aconteça, procura-se na sub-árvore esquerda ou direita (caso o elemento seja menor ou maior do que o valor da raiz).
+
+![image](https://user-images.githubusercontent.com/84712694/199480050-89542abe-719f-4d1f-9066-982eaa894af9.png)
+![image](https://user-images.githubusercontent.com/84712694/199480094-7dcc3581-923c-4bcb-b34e-1ee232119d66.png)
+
+
+#### **Estrutura típica:**
+
+![image](https://user-images.githubusercontent.com/84712694/199480333-3b4f42f3-76dc-4ce2-9fec-ab412d3d4318.png)
+
+
+**Árvores de Pesquisa Binárias: Pesquisa do Elemento Mínimo:**
+
+***Versão Iterativa***
+````
+private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t ) { 
+    if( t != null ) { 
+        while( t.left != null ) 
+            t = t.left; 
+            return t; // Encontrado 
+        } 
+    return null; 
+}
+````
+
+***Versão Recursiva***
+
+````
+private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t ) { 
+    if (t==null)
+        return null; 
+    if(t.left==null)
+        return t;
+    else 
+    return findMin(t.left);
+}
+````
+
+**Árvores de Pesquisa Binárias:**
+
+***Versão Iterativa***
+````
+private AnyType elementAt( BinaryNode<AnyType> t ) { 
+    return t == null ? null : t.element; 
+}
+    …
+private BinaryNode<AnyType> find( AnyType x, BinaryNode<AnyType> t ) { 
+    while( t != null ) { 
+        if( x.compareTo( t.element ) < 0 ) 
+            t = t.left; 
+        else if( x.compareTo( t.element ) > 0 ) 
+            t = t.right; 
+        else 
+            return t; 
+        // Encontrado 
+        //(Resultado menos provável testado em último lugar) 
+    } 
+    return null; 
+}
+````
+
+***Versão Recursiva***
+
+````
+private BinaryNode<AnyType> find( AnyType x, BinaryNode<AnyType> t ) { 
+    if( t != null ) { 
+        if( x.compareTo( t.element ) < 0 ) 
+            return find(x,t.left); 
+        else if( x.compareTo( t.element ) > 0 ) 
+            return find(x,t.right); 
+        else 
+            return t; 
+        // Encontrado 
+        //(Resultado menos provável testado em último lugar) 
+    } 
+    return null; 
+}
+````
+
+### Inserção em Árvores de Pesquisa Binárias:
+
+- Caso a árvore esteja vazia, cria-se uma nova raiz;
+- Caso contrário:
+    - Se for igual à raiz, gera exceção;
+    - Se for maior do que a raiz, insere na sub-árvore direita;
+    - Se for menor do que a raiz, insere na sub-árvore esquerda.
+
+````
+protected BinaryNode<AnyType> insert ( AnyType x, BinaryNode<AnyType> t ) { 
+    if( t == null ) 
+        t = new BinaryNode<AnyType>( x ); 
+    else if( x.compareTo( t.element ) < 0 ) 
+        t.left = insert( x, t.left ); 
+    else if( x.compareTo( t.element ) > 0 ) 
+        t.right = insert( x, t.right ); 
+    else 
+        throw new DuplicateItemException( x.toString( ) ); 
+    // Duplicado 
+    return t; //nova raiz desta sub-árvore 
+} 
+````
+
+### Remoção em Árvores de Pesquisa Binárias:
+
+- Caso simples: remoção do elemento mais pequeno de uma subárvore.
+
+![image](https://user-images.githubusercontent.com/84712694/199483508-84183b8d-c126-467c-90b1-d4d1fff3c48c.png)
+
+![image](https://user-images.githubusercontent.com/84712694/199483622-1510ab75-6602-4ec4-a330-ed3b9f5948f7.png)
+
+![image](https://user-images.githubusercontent.com/84712694/199483655-608cb13a-cd15-4b2d-8a77-f7f80309e015.png)
+
+````
+public void removeMin() {
+    root=removeMin(root);
+}
+
+private BinaryNode<AnyType> removeMin( BinaryNode<AnyType> t ) {
+    if( t == null )
+        throw new ItemNotFoundException( );
+    else if( t.left != null ) {
+        t.left = removeMin( t.left );
+        return t;
+    }
+    else
+        return t.right;
+} 
+````
+
+- ***Remoção do Nodo (10):***
+
+![image](https://user-images.githubusercontent.com/84712694/199484085-36fcac17-d9e3-4be6-bfc8-078c8d4011cd.png)
+
+![image](https://user-images.githubusercontent.com/84712694/199484207-ba49398d-e26d-4e90-ae17-64f978e1b587.png)
+
+![image](https://user-images.githubusercontent.com/84712694/199484238-a5ff0803-a6a8-441a-a043-92e93be490a8.png)
+
+![image](https://user-images.githubusercontent.com/84712694/199484270-3806e75d-331c-4e89-a65a-af9cc05a39ce.png)
+
+- ***Casos especiais:***
+
+![image](https://user-images.githubusercontent.com/84712694/199484399-288119bd-ed80-4619-8433-b4a024bf9f9a.png)
+
+![image](https://user-images.githubusercontent.com/84712694/199484437-8a24b474-d245-41bc-9b52-bc6302f6478b.png)
+
+````
+protected BinaryNode<AnyType> remove( AnyType x, BinaryNode<AnyType> t ) {
+    if( t == null )
+        throw new ItemNotFoundException( x.toString( ) );
+    if( x.compareTo( t.element ) < 0 )
+        t.left = remove( x, t.left );
+    else if( x.compareTo( t.element ) > 0 )
+        t.right = remove( x, t.right );
+    else if( t.left != null && t.right != null ) { // Dois descendentes
+        t.element = findMin( t.right ).element;
+        t.right = removeMin( t.right );
+    }
+    else
+        t = ( t.left != null ) ? t.left : t.right; // Um só descendente
+    return t;
+} 
+````
+
+#### Complexidade das Operações:
+
+![image](https://user-images.githubusercontent.com/84712694/199485014-5c6b0d5c-758e-48e6-8b8e-7e8c7f8469b3.png)
+
+- Complexidade das operações:
+    - **A complexidade varia entre O(Log N) e O(N);**
+    - **E no caso “médio”?**
+        - No caso de uma árvore criada através da inserção de elementos aleatórios distribuidos de forma uniforme, o desempenho é 38% pior do que no caso ideal.
+    - **A remoção de nodos pode ser ligeiramente problemática (em teoria) dado que tende a desequilibrar a árvore para a esquerda...**
+        - A profundidade de uma àrvore sujeita a N inserções/remoções tende a convergir para O(√N).
+        - Mas em termos práticos o efeito não costuma ser observável.
+    - **O principal problema não é a complexidade média ou o desequilirio causado pela remoção:**
+        - O principal problema reside no facto de a introdução de sequências ordenadas (ou semi-ordenadas) é uma acção relativamente frequente, resultando directamente na redução ao pior caso possível.
+
+### Árvores Equilibradas:
+
+- Abordagem simplificada:
+    - A propriedade mais simples é requerer que as sub-árvores direita e esquerda tenham a mesma profundidade.
+        - Esta abordagem é demasiado custosa em termos de *inserção* e *remoção* de nodos.
+
+### Árvores AVL:
+
+- **Propriedade de equilibrio AVL:**
+    - A profundidade da sub-árvore direita e esquerda só pode diferir em 1.
+
+![image](https://user-images.githubusercontent.com/84712694/199622154-4683c818-7472-4a26-a489-dcf32bd4deeb.png)
+
+
+### **Inserção:**
+
+![image](https://user-images.githubusercontent.com/84712694/199622211-fd3c6924-ec0d-4cc5-9740-2f5a48b61654.png)
+
+````
+Torna-se necessário efetuar uma operação adicional que assegura a preservação de equilíbrio da árvore.
+````
+**Oberservação:**
+![image](https://user-images.githubusercontent.com/84712694/199622345-b2e46caa-92b7-4fca-8e03-806336cd32e9.png)
+
+- Reequilibrar a árvore:
+    - Percorrer a árvore desde o nodo inserido até à raiz;
+    - Reequilibrando a árvore em cada nodo conforme necessário.
+        - Neste caso será necessário reequilibrar apenas o 1º nodo que viola a condição de equilibrio.
+    
+            ![image](https://user-images.githubusercontent.com/84712694/199622626-b64e107f-5cbd-417b-933d-cc78365a81f0.png)
+
+    - Para reequilibrar a árvore:
+        - Identificamos o nodo que necessita de ser reequilibrado (8);
+            - 1º Caso (Inserção exterior):
+                - Uma inserção na sub-árvore esquerda do descendente esquerdo;
+                - Uma inserção na sub-árvore direita do descendente direito.
+            - 2º Caso (Inserção interior):
+                - Uma inserção na subárvore direita do descendente esquerdo;
+                - Uma inserção na subárvore esquerda do descendente direito.
+                    
+````
+O desequilibrio pode acontecer por causa de um dos seguintes cenários:
+    > Uma inserção na sub-árvore esquerda do descendente esquerdo;
+    > Uma inserção na sub-árvore direita do descendente direito;
+    > Uma inserção na sub-árvore direita do descendente esquerdo;
+    > Uma inserção na subárvore esquerda do descendente direito.
+````
+
+- Rotação:
+    - O resultado de uma inserção exterior pode ser equilibrado com uma única rotação da árvore.
+    - O resultado de uma inserção interior pode ser equilibrado com duas rotações da árvore.
+            ![image](https://user-images.githubusercontent.com/84712694/199623166-2062e204-e30d-4c86-ac91-e11f38fed25d.png)
+
+
+- Assim, para conseguirmos reequilibrar a árvore temos que:
+    ![image](https://user-images.githubusercontent.com/84712694/199623421-53508665-8f94-4f53-a9dd-55746a75ccd2.png)
+
+    1. Identificamos o nodo que necessita de ser reequilibrado (8);
+    - Caso de uma inserção exterior:
+        2. Efetuamos uma rotação no nodo 8.
+            ![image](https://user-images.githubusercontent.com/84712694/199623483-669e5024-5d87-4a64-8a50-7226a8dd4c3e.png)
+    - Caso de uma inserção interior:
+
+        ![image](https://user-images.githubusercontent.com/84712694/199623637-5d3ac01f-ffa6-4a22-94eb-c8ebc1cceae4.png)
+
+        2. Vamos subdividir a sub-árvore onde a inserção é feita em duas e fazer 2 rotações.
+        ![image](https://user-images.githubusercontent.com/84712694/199623714-fb6dc4c8-8a24-498f-8cea-f08d22c87cbe.png)
+
+    
